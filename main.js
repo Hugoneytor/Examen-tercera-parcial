@@ -7,28 +7,28 @@ agregar(nuevoNodo){
                 this.primero = nuevoNodo;
                 this.primero.siguiente = ultimo;
             }else{
-            this.agregarNodo(this.primero, nodo);
+            this.agregarNodo(nodo, this.primero);
             }
         }
     }
 
 
 
-    agregarNodo(ultimo, nuevo){
-        if(ultimo.prioridad>nuevo.prioridad){
-             ultimo.siguiente = nuevo;
+    agregarNodo(nuevo, ultimo){
+        if(nuevo.prioridad>ultimo.prioridad){
+             nuevo.siguiente = ultimo;
              var a = this._inicio;
-             while(a.siguiente != nuevo){
+             while(a.siguiente != ultimo){
                  a=a.siguiente;
              }
-             a.siguiente=ultimo;
+             a.siguiente=nuevo;
         }
         else{
-            if(nuevo.siguiente==null){
-                nuevo.siguiente=ultimo;
+            if(ultimo.siguiente==null){
+                ultimo.siguiente=nuevo;
             }
             else{
-                agregarNodo(ultimo, nuevo.siguiente)
+                agregarNodo(nuevo, ultimo.siguiente)
             }
         }
      }
