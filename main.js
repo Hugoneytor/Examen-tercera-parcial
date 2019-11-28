@@ -12,21 +12,23 @@ agregar(nuevoNodo){
         }
     }
 
-agregarNodo(ultimo, ultimo){
-        if(ultimo.prioridad>ultimo.prioridad){
-             ultimo.siguiente = ultimo;
+
+
+    agregarNodo(ultimo, nuevo){
+        if(ultimo.prioridad>nuevo.prioridad){
+             ultimo.siguiente = nuevo;
              var a = this._inicio;
-             while(a.siguiente != ultimo){
+             while(a.siguiente != nuevo){
                  a=a.siguiente;
              }
              a.siguiente=ultimo;
         }
         else{
-            if(ultimo.siguiente==null){
-                ultimo.siguiente=ultimo;
+            if(nuevo.siguiente==null){
+                nuevo.siguiente=ultimo;
             }
             else{
-                _agregarNodo(ultimo, ultimo.siguiente)
+                agregarNodo(ultimo, nuevo.siguiente)
             }
         }
      }
